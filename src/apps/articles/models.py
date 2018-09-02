@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from markdownx.models import MarkdownxField
 
@@ -15,3 +16,9 @@ class Article(models.Model):
     class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('articles')
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('articles', kwargs={'pk': self.pk})

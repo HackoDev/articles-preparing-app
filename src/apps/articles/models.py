@@ -37,3 +37,20 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('articles', kwargs={'pk': self.pk})
+
+
+class UsefulLink(models.Model):
+
+    def __str__(self):
+        return self.url
+
+    class Meta:
+        verbose_name = _('useful url')
+        verbose_name_plural = _('useful urls')
+
+    category = models.ForeignKey(
+        'Category', on_delete=models.PROTECT, null=True, blank=True, verbose_name=_('category'), related_name='links'
+    )
+    name = models.TextField(_('name'))
+    url = models.CharField(_('url'), max_length=1024)
+    description = models.TextField(_('description'))

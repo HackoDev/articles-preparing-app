@@ -42,7 +42,7 @@ class Article(models.Model):
 class UsefulLink(models.Model):
 
     def __str__(self):
-        return self.url
+        return self.name
 
     class Meta:
         verbose_name = _('useful url')

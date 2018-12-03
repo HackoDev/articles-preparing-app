@@ -55,6 +55,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='article',
             name='category',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, related_name='articles', to='articles.Category', verbose_name='category'),
+            field=models.ForeignKey(null=True, default=None, on_delete=django.db.models.deletion.PROTECT, related_name='articles', to='articles.Category', verbose_name='category'),
         ),
     ]

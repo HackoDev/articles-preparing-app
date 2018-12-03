@@ -26,7 +26,7 @@ class Article(models.Model):
         verbose_name_plural = _('articles')
 
     category = models.ForeignKey(
-        Category, on_delete=models.PROTECT, default=None, related_name='articles', verbose_name=_('category')
+        Category, on_delete=models.PROTECT, null=True, related_name='articles', verbose_name=_('category')
     )
     title = models.CharField(_('title'), max_length=128)
     content = MarkdownxField(_('content'), default='')

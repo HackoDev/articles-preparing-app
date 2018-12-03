@@ -51,6 +51,6 @@ class UsefulLink(models.Model):
     category = models.ForeignKey(
         'Category', on_delete=models.PROTECT, null=True, blank=True, verbose_name=_('category'), related_name='links'
     )
-    name = models.TextField(_('name'))
+    name = models.CharField(_('name'), max_length=2048)
     url = models.CharField(_('url'), max_length=1024)
     description = models.TextField(_('description'))
